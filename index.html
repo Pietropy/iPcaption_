@@ -4,8 +4,11 @@
     </head>
     <body>
         <script>
-            var ipAddress = window.location.hostname;
-            alert("Seu endereço IP é: " + ipAddress);
+            fetch ('https://api.ipify.org?format=json')
+              .then (res => res.json ())
+              .then (data => {
+                alert ("Seu endereço IP real é: " + data.ip); // aqui você mostra o endereço IP real
+              });
         </script>
     </body>
 </html>
